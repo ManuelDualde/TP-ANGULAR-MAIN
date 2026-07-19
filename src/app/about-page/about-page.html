@@ -1,0 +1,31 @@
+<div class="container py-4">
+
+  <section class="mb-5">
+    <h2>¿Quiénes somos?</h2>
+    <p class="text-muted">
+      TechShop es una tienda de electrónica fundada en 2020 con el objetivo de acercar
+      la tecnología a todos. Ofrecemos smartphones, laptops, accesorios y mucho más,
+      con los mejores precios y garantía en todos nuestros productos.
+    </p>
+    <p class="text-muted">
+      Nuestra misión es brindar una experiencia de compra simple, rápida y confiable
+      desde la comodidad de tu hogar.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="mb-4">¿Por qué elegirnos?</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      @for (item of beneficios; track item.titulo) {
+        <div class="col">
+          <div class="card h-100 text-center p-3">
+            <div class="fs-1">{{ item.icono }}</div>
+            <h5 class="mt-2">{{ item.titulo }}</h5>
+            <p class="text-muted mb-0">{{ item.descripcion }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,21 @@
+<!-- Muestra un spinner mientras cargan los datos, después la grilla de productos -->
+@if (cargando) {
+  <div class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+} @else if (products.length === 0) {
+  <p class="text-muted text-center py-5">No hay productos disponibles.</p>
+} @else {
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (product of products; track product.id) {
+      <div class="col">
+        <app-product-card
+          [product]="product"
+          (addToCart)="addToCart.emit($event)">
+        </app-product-card>
+      </div>
+    }
+  </div>
+}

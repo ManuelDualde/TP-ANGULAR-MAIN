@@ -1,0 +1,30 @@
+# Dependencias
+/node_modules
+
+# Build
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Cache de Angular
+/.angular/cache
+.angular
+
+# IDE
+/.idea
+/.vscode/*
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-error.log*

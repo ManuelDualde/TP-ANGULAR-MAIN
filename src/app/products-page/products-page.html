@@ -1,0 +1,17 @@
+<div class="container py-4">
+  <h2 class="mb-4">Catálogo de Productos</h2>
+
+  <div class="row">
+    <div class="col-md-8">
+      <app-product-list
+        [products]="productos"
+        [cargando]="cargando"
+        (addToCart)="alAgregar($event)">
+      </app-product-list>
+    </div>
+
+    <div class="col-md-4">
+      <app-cart></app-cart>
+    </div>
+  </div>
+</div>

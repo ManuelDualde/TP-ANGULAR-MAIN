@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechShop — Documentación Angular</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #1a1a2e;
+      background: #fff;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── Portada ── */
+    .cover {
+      text-align: center;
+      padding: 60px 0 80px;
+      border-bottom: 3px solid #0d6efd;
+      margin-bottom: 50px;
+      page-break-after: always;
+    }
+    .cover h1 { font-size: 2.8rem; color: #0d6efd; margin-bottom: 10px; }
+    .cover .subtitle { font-size: 1.2rem; color: #555; margin-bottom: 30px; }
+    .cover .meta { font-size: 0.95rem; color: #888; }
+
+    /* ── Encabezados ── */
+    h2 {
+      font-size: 1.5rem;
+      color: #0d6efd;
+      border-left: 5px solid #0d6efd;
+      padding-left: 12px;
+      margin: 40px 0 16px;
+    }
+    h3 {
+      font-size: 1.1rem;
+      color: #1a1a2e;
+      margin: 24px 0 8px;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 16px 0 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p { margin-bottom: 10px; }
+
+    /* ── Código ── */
+    code {
+      background: #f0f4ff;
+      border: 1px solid #d0d9f0;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.88em;
+      color: #c7254e;
+    }
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0 16px;
+      overflow-x: auto;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.85em;
+      line-height: 1.6;
+    }
+    pre .kw  { color: #89b4fa; }
+    pre .cl  { color: #a6e3a1; }
+    pre .st  { color: #f9e2af; }
+    pre .cm  { color: #6c7086; font-style: italic; }
+    pre .dc  { color: #cba6f7; }
+
+    /* ── Tabla ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 0.9em;
+    }
+    th {
+      background: #0d6efd;
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    td { padding: 7px 12px; border-bottom: 1px solid #e0e6ff; }
+    tr:nth-child(even) td { background: #f8f9ff; }
+
+    /* ── Cards de concepto ── */
+    .card {
+      border: 1px solid #d0d9f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+      background: #f8f9ff;
+    }
+    .card h3 { margin-top: 0; }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.75em;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .badge-blue   { background: #dbeafe; color: #1d4ed8; }
+    .badge-green  { background: #dcfce7; color: #166534; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+    .badge-orange { background: #ffedd5; color: #9a3412; }
+
+    /* ── Diagrama de flujo ── */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+      font-size: 0.9em;
+    }
+    .flow-box {
+      background: #0d6efd;
+      color: #fff;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-weight: 600;
+    }
+    .flow-arrow { color: #0d6efd; font-size: 1.1em; font-weight: bold; }
+    .flow-label { color: #555; font-size: 0.8em; }
+
+    /* ── Índice ── */
+    .toc { margin: 20px 0 40px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 6px 0; color: #0d6efd; }
+    .toc li span { color: #333; }
+
+    /* ── Print ── */
+    @media print {
+      body { padding: 20px; font-size: 12px; }
+      h2 { page-break-before: always; }
+      h2:first-of-type { page-break-before: avoid; }
+      pre { font-size: 0.78em; }
+      .cover { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ PORTADA ══════════════ -->
+<div class="cover">
+  <div style="font-size:3rem; margin-bottom:16px;">💻</div>
+  <h1>TechShop</h1>
+  <div class="subtitle">Documentación técnica — Trabajo Práctico Final<br>Seminario Angular 2026</div>
+  <div class="meta">
+    Framework: Angular 17+ &nbsp;|&nbsp; Lenguaje: TypeScript &nbsp;|&nbsp; Estilos: Bootstrap 5
+  </div>
+</div>
+
+<!-- ══════════════ ÍNDICE ══════════════ -->
+<h2 style="page-break-before:avoid">Índice</h2>
+<div class="toc">
+  <ol>
+    <li><span>¿Qué es Angular?</span></li>
+    <li><span>Conceptos fundamentales utilizados</span></li>
+    <li><span>Estructura del proyecto</span></li>
+    <li><span>Componentes</span></li>
+    <li><span>Servicios</span></li>
+    <li><span>Ruteo</span></li>
+    <li><span>Comunicación entre componentes</span></li>
+    <li><span>APIs externas</span></li>
+    <li><span>Formularios reactivos</span></li>
+    <li><span>Flujo completo de la aplicación</span></li>
+  </ol>
+</div>
+
+<!-- ══════════════ 1. QUÉ ES ANGULAR ══════════════ -->
+<h2>1. ¿Qué es Angular?</h2>
+
+<p>Angular es un <strong>framework de desarrollo frontend</strong> creado y mantenido por Google. Permite construir aplicaciones web de una sola página (SPA — Single Page Application) usando <strong>TypeScript</strong> como lenguaje principal.</p>
+
+<p>A diferencia de una página web tradicional donde cada click carga una nueva página desde el servidor, en Angular toda la navegación ocurre en el navegador: el servidor entrega el código una sola vez y Angular se encarga de mostrar u ocultar secciones según la ruta activa.</p>
+
+<h3>¿Por qué TypeScript?</h3>
+<p>TypeScript es un superconjunto de JavaScript que agrega <strong>tipado estático</strong>. Esto significa que se declara el tipo de cada variable, parámetro y retorno de función. El compilador detecta errores antes de ejecutar el código, haciendo el desarrollo más seguro y predecible.</p>
+
+<h3>Angular 17+ — Componentes standalone</h3>
+<p>Desde la versión 17, Angular promueve los <strong>componentes standalone</strong>: cada componente declara sus propias dependencias en el array <code>imports</code>, sin necesidad de módulos (<code>NgModule</code>). Este proyecto usa ese enfoque moderno.</p>
+
+<!-- ══════════════ 2. CONCEPTOS ══════════════ -->
+<h2>2. Conceptos fundamentales utilizados</h2>
+
+<div class="card">
+  <h3>🧱 Componentes</h3>
+  <p>Un componente es la unidad básica de Angular. Cada componente tiene tres archivos: <code>.ts</code> (lógica), <code>.html</code> (vista) y <code>.scss</code> (estilos). Se declara con el decorador <code>@Component</code>.</p>
+  <pre><span class="dc">@Component</span>({
+  <span class="st">selector</span>: <span class="st">'app-product-card'</span>,
+  <span class="st">imports</span>: [CurrencyPipe],
+  <span class="st">templateUrl</span>: <span class="st">'./product-card.html'</span>,
+})
+<span class="kw">export class</span> <span class="cl">ProductCard</span> { ... }</pre>
+  <p>El <code>selector</code> es la etiqueta HTML con la que se usa el componente: <code>&lt;app-product-card&gt;</code>.</p>
+</div>
+
+<div class="card">
+  <h3>📐 Interfaces</h3>
+  <p>Las interfaces son contratos de TypeScript que definen la forma de los datos. No generan código en runtime — son solo anotaciones que el compilador usa para detectar errores. Si se accede a una propiedad que no existe en la interfaz, TypeScript avisa antes de ejecutar.</p>
+  <pre><span class="kw">export interface</span> <span class="cl">Product</span> {
+  id: <span class="kw">number</span>;
+  title: <span class="kw">string</span>;
+  price: <span class="kw">number</span>;
+  category: <span class="kw">string</span>;
+  thumbnail: <span class="kw">string</span>;
+  stock: <span class="kw">number</span>;
+  rating: <span class="kw">number</span>;
+}</pre>
+</div>
+
+<div class="card">
+  <h3>⚙️ Servicios e inyección de dependencias</h3>
+  <p>Un servicio es una clase con lógica reutilizable (llamadas HTTP, estado compartido). Con <code>providedIn: 'root'</code>, Angular crea <strong>una única instancia</strong> del servicio para toda la aplicación. Los componentes lo reciben mediante <code>inject()</code> — Angular resuelve la dependencia automáticamente.</p>
+  <pre><span class="dc">@Injectable</span>({ <span class="st">providedIn</span>: <span class="st">'root'</span> })
+<span class="kw">export class</span> <span class="cl">CartService</span> {
+  <span class="cm">// Una sola instancia compartida en toda la app</span>
+}
+
+<span class="cm">// En el componente:</span>
+cartService = inject(CartService);</pre>
+</div>
+
+<div class="card">
+  <h3>🔀 Control de flujo — @if y @for</h3>
+  <p>Angular 17+ introduce sintaxis de control de flujo directamente en los templates, sin necesidad de importar directivas.</p>
+  <pre><span class="cm"><!-- Condicional --></span>
+@<span class="kw">if</span> (product.stock === 0) {
+  &lt;span&gt;Sin stock&lt;/span&gt;
+} @<span class="kw">else</span> {
+  &lt;button&gt;Agregar&lt;/button&gt;
+}
+
+<span class="cm"><!-- Iteración --></span>
+@<span class="kw">for</span> (product <span class="kw">of</span> products; <span class="kw">track</span> product.id) {
+  &lt;app-product-card [product]="product" /&gt;
+}</pre>
+  <p>El <code>track product.id</code> le dice a Angular cómo identificar cada elemento para actualizar solo lo que cambió en el DOM.</p>
+</div>
+
+<div class="card">
+  <h3>📡 @Input y @Output</h3>
+  <p><strong>@Input</strong> permite que un componente padre le pase datos a un componente hijo.<br>
+  <strong>@Output</strong> permite que el hijo notifique al padre de un evento.</p>
+  <pre><span class="cm">// Hijo (ProductCard)</span>
+<span class="dc">@Input</span>() product!: Product;
+<span class="dc">@Output</span>() addToCart = <span class="kw">new</span> <span class="cl">EventEmitter</span>&lt;Product&gt;();
+
+<span class="cm">// Padre (template)</span>
+&lt;app-product-card
+  [product]="item"
+  (addToCart)="onAddToCart($event)"&gt;
+&lt;/app-product-card&gt;</pre>
+  <p>Los corchetes <code>[ ]</code> indican binding de entrada (dato va hacia el hijo). Los paréntesis <code>( )</code> indican binding de evento (dato sube al padre).</p>
+</div>
+
+<div class="card">
+  <h3>🔔 Signals</h3>
+  <p>Los signals son valores reactivos introducidos en Angular 17. Cuando un signal cambia, todo lo que depende de él en el template se actualiza automáticamente, sin necesidad de detectar cambios manualmente.</p>
+  <pre><span class="cm">// Declarar un signal</span>
+items = signal&lt;<span class="cl">CartItem</span>[]&gt;([]);
+
+<span class="cm">// Computed: se recalcula cuando items cambia</span>
+total = computed(() =>
+  <span class="kw">this</span>.items().reduce((sum, i) => sum + i.product.price * i.quantity, 0)
+);
+
+<span class="cm">// Leer el valor: items() con paréntesis</span>
+<span class="cm">// Escribir: items.set([]) o items.update(fn)</span></pre>
+</div>
+
+<!-- ══════════════ 3. ESTRUCTURA ══════════════ -->
+<h2>3. Estructura del proyecto</h2>
+
+<pre>src/
+└── app/
+    ├── app.ts                  <span class="cm">← componente raíz (navbar + footer)</span>
+    ├── app.html
+    ├── app.routes.ts           <span class="cm">← definición de rutas</span>
+    ├── app.config.ts           <span class="cm">← configuración global (HttpClient, Router)</span>
+    │
+    ├── product-card/           <span class="cm">← tarjeta individual de producto</span>
+    │   ├── Product.ts          <span class="cm">← interfaz Product</span>
+    │   ├── product-card.ts
+    │   └── product-card.html
+    │
+    ├── product-list/           <span class="cm">← grilla de productos</span>
+    │   ├── product-list.ts
+    │   └── product-list.html
+    │
+    ├── cart/                   <span class="cm">← carrito de compras</span>
+    │   ├── CartItem.ts         <span class="cm">← interfaz CartItem</span>
+    │   ├── cart.service.ts     <span class="cm">← estado global del carrito</span>
+    │   ├── cart.ts
+    │   └── cart.html
+    │
+    ├── products-page/          <span class="cm">← página /productos</span>
+    │   ├── product.service.ts  <span class="cm">← llamadas a DummyJSON</span>
+    │   ├── products-page.ts
+    │   └── products-page.html
+    │
+    ├── checkout-page/          <span class="cm">← página /checkout</span>
+    │   ├── Order.ts            <span class="cm">← interfaz Order</span>
+    │   ├── order.service.ts    <span class="cm">← llamadas a MockAPI</span>
+    │   ├── checkout-page.ts
+    │   └── checkout-page.html
+    │
+    └── about-page/             <span class="cm">← página /nosotros</span>
+        ├── about-page.ts
+        └── about-page.html</pre>
+
+<!-- ══════════════ 4. COMPONENTES ══════════════ -->
+<h2>4. Componentes</h2>
+
+<h3>App (componente raíz)</h3>
+<p><span class="badge badge-blue">app.ts</span> Es el componente que envuelve toda la aplicación. Contiene la barra de navegación y el footer. El <code>&lt;router-outlet&gt;</code> en su template es el lugar donde Angular renderiza el componente correspondiente a la ruta activa.</p>
+
+<table>
+  <tr><th>Propiedad</th><th>Valor</th><th>Para qué</th></tr>
+  <tr><td><code>title</code></td><td>'TechShop'</td><td>Se muestra en navbar y footer</td></tr>
+  <tr><td><code>currentYear</code></td><td>año actual</td><td>Se muestra en el footer</td></tr>
+</table>
+
+<h3>ProductCard</h3>
+<p><span class="badge badge-blue">product-card/</span> Tarjeta visual de un producto individual. Es un componente <strong>presentacional puro</strong>: no tiene lógica de negocio, solo recibe datos y emite eventos.</p>
+
+<table>
+  <tr><th>Concepto Angular</th><th>Uso</th></tr>
+  <tr><td><code>@Input() product</code></td><td>Recibe el producto a mostrar desde el padre</td></tr>
+  <tr><td><code>@Output() addToCart</code></td><td>Emite el producto cuando se hace click en "Agregar"</td></tr>
+  <tr><td><code>@if (stock === 0)</code></td><td>Muestra badge "Sin stock" o el botón según disponibilidad</td></tr>
+  <tr><td><code>CurrencyPipe</code></td><td>Formatea el precio como moneda: <code>$549.00</code></td></tr>
+</table>
+
+<h3>ProductList</h3>
+<p><span class="badge badge-blue">product-list/</span> Contenedor de la grilla de productos. Recibe el array de productos del padre y los renderiza usando <code>ProductCard</code>.</p>
+
+<table>
+  <tr><th>Concepto Angular</th><th>Uso</th></tr>
+  <tr><td><code>@Input() products</code></td><td>Array de productos a renderizar</td></tr>
+  <tr><td><code>@Input() loading</code></td><td>Muestra spinner mientras se cargan los datos</td></tr>
+  <tr><td><code>@Output() addToCart</code></td><td>Reemite el evento que sube desde ProductCard</td></tr>
+  <tr><td><code>@for</code></td><td>Itera el array y crea una ProductCard por cada producto</td></tr>
+  <tr><td><code>@if / @else if / @else</code></td><td>Tres estados: cargando, vacío, con datos</td></tr>
+</table>
+
+<h3>Cart</h3>
+<p><span class="badge badge-green">cart/</span> Panel lateral del carrito. No maneja estado propio — lee directamente del <code>CartService</code>. Gracias a los signals, el carrito se actualiza en tiempo real cada vez que se agrega un producto, sin necesidad de ningún mecanismo adicional.</p>
+
+<table>
+  <tr><th>Concepto Angular</th><th>Uso</th></tr>
+  <tr><td><code>inject(CartService)</code></td><td>Obtiene la instancia única del servicio</td></tr>
+  <tr><td><code>cartService.items()</code></td><td>Lee el signal — los <code>()</code> son obligatorios para obtener el valor</td></tr>
+  <tr><td><code>cartService.total()</code></td><td>Lee el computed que calcula el total</td></tr>
+  <tr><td><code>routerLink="/checkout"</code></td><td>Navega a la página de checkout sin recargar</td></tr>
+</table>
+
+<h3>ProductsPage</h3>
+<p><span class="badge badge-purple">products-page/</span> Página principal. Orquesta <code>ProductList</code> y <code>Cart</code>, maneja el filtro de categorías y conecta los eventos con el servicio.</p>
+
+<table>
+  <tr><th>Concepto Angular</th><th>Uso</th></tr>
+  <tr><td><code>ngOnInit</code></td><td>Ciclo de vida: se ejecuta cuando el componente se inicializa. Aquí se hace la primera carga de productos</td></tr>
+  <tr><td><code>inject(ProductService)</code></td><td>Servicio para llamadas HTTP a DummyJSON</td></tr>
+  <tr><td><code>inject(CartService)</code></td><td>Para agregar productos al carrito</td></tr>
+  <tr><td><code>onCategoryChange()</code></td><td>Al cambiar de categoría, vuelve a llamar la API</td></tr>
+</table>
+
+<h3>CheckoutPage</h3>
+<p><span class="badge badge-orange">checkout-page/</span> Formulario de compra. Usa Reactive Forms para validar los datos del cliente y envía la orden a MockAPI.</p>
+
+<h3>AboutPage</h3>
+<p><span class="badge badge-blue">about-page/</span> Página estática con información de la tienda. Tiene dos secciones: descripción de la empresa y grilla de beneficios. Usa <code>@for</code> para renderizar las cards de beneficios desde un array definido en el componente.</p>
+
+<!-- ══════════════ 5. SERVICIOS ══════════════ -->
+<h2>5. Servicios</h2>
+
+<h3>CartService</h3>
+<p>Mantiene el estado global del carrito. Al ser <code>providedIn: 'root'</code>, existe una única instancia compartida entre <code>ProductsPage</code>, <code>Cart</code> y <code>CheckoutPage</code>. Todos leen y escriben el mismo carrito.</p>
+
+<table>
+  <tr><th>Método / Propiedad</th><th>Qué hace</th></tr>
+  <tr><td><code>items</code> (signal)</td><td>Array reactivo de CartItem. Cuando cambia, el template se actualiza solo</td></tr>
+  <tr><td><code>total</code> (computed)</td><td>Suma precio × cantidad de todos los items</td></tr>
+  <tr><td><code>itemCount</code> (computed)</td><td>Suma total de unidades en el carrito</td></tr>
+  <tr><td><code>addItem(product)</code></td><td>Si el producto ya está, incrementa quantity; si no, lo agrega</td></tr>
+  <tr><td><code>removeItem(id)</code></td><td>Filtra y elimina el item con ese id</td></tr>
+  <tr><td><code>clearCart()</code></td><td>Vacía el carrito (se llama al completar la compra)</td></tr>
+</table>
+
+<h3>ProductService</h3>
+<p>Encapsula las llamadas HTTP a <strong>DummyJSON</strong>. Usa <code>HttpClient</code> inyectado con <code>inject()</code>.</p>
+
+<table>
+  <tr><th>Método</th><th>Endpoint</th><th>Qué devuelve</th></tr>
+  <tr><td><code>getProductsByCategory(cat)</code></td><td>GET /products/category/{cat}</td><td><code>Observable&lt;Product[]&gt;</code></td></tr>
+</table>
+
+<p>El método devuelve un <strong>Observable</strong> — un flujo de datos asíncrono. En el componente se usa <code>.subscribe()</code> para recibir el resultado cuando la API responde. El operador <code>map()</code> transforma la respuesta <code>{ products: [...] }</code> extrayendo solo el array.</p>
+
+<h3>OrderService</h3>
+<p>Maneja las órdenes de compra en <strong>MockAPI</strong>.</p>
+
+<table>
+  <tr><th>Método</th><th>Verbo HTTP</th><th>Qué hace</th></tr>
+  <tr><td><code>getOrders()</code></td><td>GET</td><td>Obtiene todas las órdenes guardadas</td></tr>
+  <tr><td><code>createOrder(order)</code></td><td>POST</td><td>Guarda una nueva orden</td></tr>
+  <tr><td><code>deleteOrder(id)</code></td><td>DELETE</td><td>Elimina una orden por id</td></tr>
+</table>
+
+<!-- ══════════════ 6. RUTEO ══════════════ -->
+<h2>6. Ruteo</h2>
+
+<p>El ruteo de Angular permite navegar entre páginas sin recargar el navegador. Se configura en <code>app.routes.ts</code> y se activa con <code>provideRouter(routes)</code> en <code>app.config.ts</code>.</p>
+
+<pre><span class="kw">export const</span> routes: <span class="cl">Routes</span> = [
+  { path: <span class="st">''</span>, redirectTo: <span class="st">'productos'</span>, pathMatch: <span class="st">'full'</span> },
+  { path: <span class="st">'productos'</span>,  component: <span class="cl">ProductsPage</span>  },
+  { path: <span class="st">'checkout'</span>,   component: <span class="cl">CheckoutPage</span>  },
+  { path: <span class="st">'nosotros'</span>,   component: <span class="cl">AboutPage</span>    },
+];</pre>
+
+<table>
+  <tr><th>Ruta</th><th>Componente</th><th>Descripción</th></tr>
+  <tr><td><code>/</code></td><td>—</td><td>Redirige automáticamente a <code>/productos</code></td></tr>
+  <tr><td><code>/productos</code></td><td>ProductsPage</td><td>Catálogo con filtro y carrito lateral</td></tr>
+  <tr><td><code>/checkout</code></td><td>CheckoutPage</td><td>Formulario de compra y resumen</td></tr>
+  <tr><td><code>/nosotros</code></td><td>AboutPage</td><td>Información sobre la tienda</td></tr>
+</table>
+
+<p>En el navbar se usan <code>routerLink</code> y <code>routerLinkActive</code>: el primero define a dónde navegar al hacer click; el segundo agrega la clase CSS <code>active</code> al link de la ruta activa automáticamente.</p>
+
+<!-- ══════════════ 7. COMUNICACIÓN ══════════════ -->
+<h2>7. Comunicación entre componentes</h2>
+
+<p>El proyecto usa <strong>dos mecanismos</strong> de comunicación, tal como requiere el TP:</p>
+
+<h3>@Input / @Output — comunicación padre-hijo</h3>
+<p>Para pasar datos entre componentes directamente relacionados (padre → hijo con <code>@Input</code>, hijo → padre con <code>@Output</code>).</p>
+
+<div class="flow">
+  <div class="flow-box">ProductsPage</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-label">[products]</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">ProductList</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-label">[product]</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">ProductCard</div>
+</div>
+<div class="flow">
+  <div class="flow-box">ProductCard</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-label">(addToCart) ↑</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">ProductList</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-label">(addToCart) ↑</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">ProductsPage</div>
+</div>
+
+<h3>Servicio compartido — CartService</h3>
+<p>Para comunicar componentes que no tienen relación directa padre-hijo. <code>ProductsPage</code> escribe en el carrito y <code>Cart</code> lo lee — son componentes hermanos, no pueden usar @Input/@Output entre sí.</p>
+
+<div class="flow">
+  <div class="flow-box">ProductsPage</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-label">cartService.addItem()</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">CartService</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-label">items() signal</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">Cart</div>
+</div>
+
+<!-- ══════════════ 8. APIS EXTERNAS ══════════════ -->
+<h2>8. APIs externas</h2>
+
+<h3>DummyJSON — catálogo de productos</h3>
+<p><strong>URL:</strong> <code>https://dummyjson.com/products</code></p>
+<p>API pública y gratuita que provee datos de productos de electrónica. No requiere registro ni clave de API.</p>
+
+<table>
+  <tr><th>Endpoint usado</th><th>Qué devuelve</th></tr>
+  <tr><td><code>GET /products/category/smartphones</code></td><td>Lista de smartphones con id, title, price, thumbnail, stock, rating</td></tr>
+  <tr><td><code>GET /products/category/laptops</code></td><td>Lista de laptops</td></tr>
+  <tr><td><code>GET /products/category/tablets</code></td><td>Lista de tablets</td></tr>
+  <tr><td><code>GET /products/category/mobile-accessories</code></td><td>Lista de accesorios</td></tr>
+</table>
+
+<p>La respuesta tiene la forma <code>{ products: [...], total: N }</code>. El operador <code>map()</code> de RxJS extrae el array antes de entregárselo al componente.</p>
+
+<h3>MockAPI — órdenes de compra</h3>
+<p><strong>URL:</strong> <code>https://6a42d25a7602860e6521e3e7.mockapi.io/orders</code></p>
+<p>Servicio que simula una API REST con persistencia real. Permite crear, leer y eliminar órdenes de compra.</p>
+
+<table>
+  <tr><th>Operación</th><th>Método</th><th>Cuándo se llama</th></tr>
+  <tr><td>Obtener órdenes</td><td>GET</td><td>Disponible en OrderService</td></tr>
+  <tr><td>Crear orden</td><td>POST</td><td>Al confirmar el formulario de checkout</td></tr>
+  <tr><td>Eliminar orden</td><td>DELETE</td><td>Disponible en OrderService</td></tr>
+</table>
+
+<!-- ══════════════ 9. FORMULARIOS ══════════════ -->
+<h2>9. Formularios reactivos (Reactive Forms)</h2>
+
+<p>Los Reactive Forms definen la estructura y validaciones del formulario directamente en el TypeScript, no en el HTML. Esto los hace más fáciles de testear y mantener.</p>
+
+<pre><span class="cm">// Definición del formulario en checkout-page.ts</span>
+form = <span class="kw">this</span>.fb.group({
+  customerName: [<span class="st">''</span>, [Validators.required, Validators.minLength(<span class="st">3</span>)]],
+  email:        [<span class="st">''</span>, [Validators.required, Validators.email]],
+  address:      [<span class="st">''</span>,  Validators.required],
+  phone:        [<span class="st">''</span>, [Validators.required, Validators.pattern(<span class="st">/^\d{8,15}$/</span>)]],
+});</pre>
+
+<table>
+  <tr><th>Campo</th><th>Validaciones</th></tr>
+  <tr><td>customerName</td><td>Requerido, mínimo 3 caracteres</td></tr>
+  <tr><td>email</td><td>Requerido, formato de email válido</td></tr>
+  <tr><td>address</td><td>Requerido</td></tr>
+  <tr><td>phone</td><td>Requerido, solo dígitos, entre 8 y 15 caracteres</td></tr>
+</table>
+
+<p>Los mensajes de error se muestran solo si el campo fue <strong>tocado</strong> (<code>touched</code>) y tiene errores, evitando mostrar errores antes de que el usuario interactúe:</p>
+
+<pre>@<span class="kw">if</span> (form.get(<span class="st">'email'</span>)?.invalid && form.get(<span class="st">'email'</span>)?.touched) {
+  &lt;small class="text-danger"&gt;Ingresá un email válido.&lt;/small&gt;
+}</pre>
+
+<p>Si el usuario hace click en "Confirmar" sin completar el formulario, <code>markAllAsTouched()</code> fuerza que todos los campos muestren sus errores de una vez.</p>
+
+<!-- ══════════════ 10. FLUJO COMPLETO ══════════════ -->
+<h2>10. Flujo completo de la aplicación</h2>
+
+<h3>Flujo de compra de principio a fin</h3>
+
+<table>
+  <tr><th>#</th><th>Acción del usuario</th><th>Qué hace Angular</th></tr>
+  <tr><td>1</td><td>Entra a <code>/productos</code></td><td><code>ngOnInit</code> llama a DummyJSON → GET smartphones → muestra grilla</td></tr>
+  <tr><td>2</td><td>Cambia a "laptops"</td><td><code>onCategoryChange()</code> → nueva llamada a DummyJSON → actualiza grilla</td></tr>
+  <tr><td>3</td><td>Click en "Agregar"</td><td><code>ProductCard</code> emite <code>addToCart</code> → sube por <code>ProductList</code> → llega a <code>ProductsPage</code> → <code>cartService.addItem()</code></td></tr>
+  <tr><td>4</td><td>El carrito se actualiza</td><td>El signal <code>items</code> cambia → <code>Cart</code> se re-renderiza automáticamente</td></tr>
+  <tr><td>5</td><td>Click en "Finalizar compra"</td><td><code>routerLink</code> navega a <code>/checkout</code> sin recargar</td></tr>
+  <tr><td>6</td><td>Completa el formulario</td><td>Reactive Form valida en tiempo real campo a campo</td></tr>
+  <tr><td>7</td><td>Click en "Confirmar pedido"</td><td>Si el form es válido → construye <code>Order</code> → POST a MockAPI → <code>clearCart()</code> → muestra mensaje de éxito</td></tr>
+</table>
+
+<br>
+<hr style="margin: 40px 0; border-color: #d0d9f0" />
+<p style="text-align:center; color:#888; font-size:0.85em">
+  TechShop — Seminario Angular 2026 &nbsp;|&nbsp; Documentación generada con Claude Code
+</p>
+
+</body>
+</html>

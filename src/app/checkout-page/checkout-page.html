@@ -1,0 +1,82 @@
+<div class="container py-4">
+  <h2 class="mb-4">Finalizar compra</h2>
+
+  <!-- Mensaje de éxito después de confirmar el pedido -->
+  @if (pedidoExitoso) {
+    <div class="alert alert-success text-center">
+      <h4>¡Pedido realizado con éxito! 🎉</h4>
+      <p class="mb-0">Te contactaremos a la brevedad para coordinar la entrega.</p>
+    </div>
+  } @else {
+
+    <div class="row">
+
+      <div class="col-md-7">
+        <h5 class="mb-3">Datos de envío</h5>
+        <form [formGroup]="form" (ngSubmit)="enviarFormulario()">
+
+          <div class="mb-3">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" formControlName="customerName" />
+            @if (form.get('customerName')?.invalid && form.get('customerName')?.touched) {
+              <small class="text-danger">Ingresá tu nombre (mínimo 3 caracteres).</small>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" />
+            @if (form.get('email')?.invalid && form.get('email')?.touched) {
+              <small class="text-danger">Ingresá un email válido.</small>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <input type="text" class="form-control" formControlName="address" />
+            @if (form.get('address')?.invalid && form.get('address')?.touched) {
+              <small class="text-danger">Ingresá tu dirección.</small>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="text" class="form-control" formControlName="phone" />
+            @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+              <small class="text-danger">Ingresá un teléfono válido (8 a 15 dígitos).</small>
+            }
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            Confirmar pedido
+          </button>
+
+        </form>
+      </div>
+
+      <div class="col-md-5">
+        <h5 class="mb-3">Resumen del pedido</h5>
+        <div class="card">
+          <div class="card-body">
+            @if (carrito.items().length === 0) {
+              <p class="text-muted text-center">No hay productos en el carrito.</p>
+            } @else {
+              @for (item of carrito.items(); track item.product.id) {
+                <div class="d-flex justify-content-between mb-2">
+                  <small>{{ item.product.title }} x{{ item.quantity }}</small>
+                  <small>{{ item.product.price * item.quantity | currency:'USD' }}</small>
+                </div>
+              }
+              <hr />
+              <div class="d-flex justify-content-between fw-bold">
+                <span>Total</span>
+                <span>{{ carrito.total() | currency:'USD' }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+  }
+</div>
