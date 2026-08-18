@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { ProductList } from '../product-list/product-list';
 import { Cart } from '../cart/cart';
 import { CartService } from '../cart/cart.service';
@@ -15,7 +15,7 @@ export class ProductsPage implements OnInit {
   carrito = inject(CartService);
   productoService = inject(ProductService);
 
-  productos: Product[] = [];
+  productos = signal<Product[]>([]);
   cargando: boolean = false;
 
   // Al iniciar la página se piden los productos a la API
@@ -23,7 +23,7 @@ export class ProductsPage implements OnInit {
     this.cargando = true;
     this.productoService.obtenerProductos().subscribe({
       next: (data) => {
-        this.productos = data;
+        this.productos.set(data);
         this.cargando = false;
       },
       error: () => {

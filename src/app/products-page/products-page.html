@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-8">
       <app-product-list
-        [products]="productos"
+        [products]="productos()"
         [cargando]="cargando"
         (addToCart)="alAgregar($event)">
       </app-product-list>
